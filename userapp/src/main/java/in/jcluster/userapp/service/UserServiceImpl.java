@@ -34,7 +34,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public User updateUser(User user) {
         User existUser=userRepository.findById(user.getId()).get();
-        existUser.setEmail("babujcluster@gmail.com");
+        existUser.setFirstName(user.getFirstName());
+        existUser.setLastName(user.getLastName());
+        existUser.setEmail(user.getEmail());
         return userRepository.save(existUser);
     }
 
